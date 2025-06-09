@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aya Anwar | Backend Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #7f8c8d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.2) 0%, rgba(231, 76, 60, 0.2) 100%);
+            z-index: 1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 180px;
+            /* كبر الصورة */
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--light);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            color: var(--secondary);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            display: inline-block;
+            padding: 0 1rem;
+            background-color: #f5f5f5;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: #ddd;
+            z-index: 0;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-category h3 i {
+            color: var(--secondary);
+        }
+
+        .skills-list {
+            list-style: none;
+        }
+
+        .skills-list li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skills-list li::before {
+            content: '▹';
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        /* Container and Grid Layout */
+        #projects {
+            padding: 4rem 1rem;
+            background-color: #f9f9f9;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Project Info Styling */
+        .project-info {
+            padding: 1rem;
+            flex-grow: 1;
+        }
+
+        .project-info h3 {
+            font-size: 1.5rem;
+            color: #222;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-info p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        /* Tags and Tech Stack */
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background-color: #eee;
+            color: #333;
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+        }
+
+        /* Project Links */
+        .project-links a {
+            display: inline-block;
+            margin-right: 1rem;
+            font-size: 0.9rem;
+            color: #007acc;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .project-links a:hover {
+            color: #005c99;
+        }
+
+        .project-links i {
+            margin-right: 0.3rem;
+        }
+
+
+        /* Education Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-left: 50px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 20px;
+            height: 100%;
+            width: 2px;
+            background-color: var(--secondary);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            left: -40px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px var(--secondary);
+        }
+
+        .timeline-date {
+            position: absolute;
+            top: 22px;
+            left: -150px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            text-align: right;
+            width: 100px;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .timeline-content h4 {
+            font-size: 1rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .timeline-content p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        .contact-details h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--primary);
+        }
+
+        .contact-details p,
+        .contact-details a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .contact-details a:hover {
+            color: var(--secondary);
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .timeline {
+                padding-left: 30px;
+            }
+
+            .timeline-date {
+                position: static;
+                text-align: left;
+                margin-bottom: 0.5rem;
+            }
+
+            .timeline-item::before {
+                left: -30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <img src="./aya1.jpg" alt="Aya Anwar" class="profile-img">
+            <h1>Aya Anwar</h1>
+            <p class="tagline">Backend Developer | Node.js Specialist | ALX Africa Graduate</p>
+            <div class="social-links">
+                <a href="https://github.com/aya-anwar22?tab=repositories"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/aya-anwar-473115279/"><i class="fab fa-linkedin"></i></a>
+                <a href="https://x.com/AyaAnwar501"><i class="fab fa-twitter"></i></a>
+                <a href="http://medium.com/@aya786930"><i class="fab fa-medium"></i></a>
+            </div>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">Aya Anwar</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Backend Developer | Node.js Specialist</h3>
+                    <p>I am Aya Anwar, a passionate Backend Developer specializing in building scalable and secure APIs
+                        using Node.js and Express. I love solving complex problems and continuously learning new
+                        technologies to improve my craft.</p>
+                    <p>Graduated from ALX Africa Software Engineering program with expertise in system engineering,
+                        DevOps, and backend development. Currently expanding my knowledge in the MEAN stack at NTI.</p>
+                    <p>With a strong foundation in computer science and hands-on experience in various backend
+                        technologies.</p>
+                </div>
+                <div class="about-image">
+                    <img src="/aya2.jpg" alt="Aya Anwar working">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Technical Skills</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Languages</h3>
+                    <ul class="skills-list">
+                        <li>JavaScript (ES6+)</li>
+                        <li>Python</li>
+                        <li>SQL</li>
+                        <li>TypeScript</li>
+                        <li>Bash</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-server"></i> Backend</h3>
+                    <ul class="skills-list">
+                        <li>Node.js</li>
+                        <li>Express.js</li>
+                        <li>Flask</li>
+                        <li>REST API Design</li>
+                        <li>Authentication & Authorization</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Databases</h3>
+                    <ul class="skills-list">
+                        <li>MongoDB</li>
+                        <li>MySQL</li>
+                        <li>Redis</li>
+                        <li>PostgreSQL</li>
+                        <li>ORM/ODM</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Tools & DevOps</h3>
+                    <ul class="skills-list">
+                        <li>Git</li>
+                        <li>Docker</li>
+                        <li>Postman</li>
+                        <li>Nginx</li>
+                        <li>HAProxy</li>
+                        <li>Puppet</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="/drilldown.jpg" alt="CodeEagle">
+                    </div>
+                    <div class="project-info">
+                        <h3>CodeEagle</h3>
+                        <p>Full-featured backend API service designed to support a web application currently running in
+                            production.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">JWT</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://www.code-eagles.com/"><i class="fas fa-external-link-alt"></i> Live</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="/images//loopstyle-logo.png" alt="E-Commerce UI">
+                    </div>
+                    <div class="project-info">
+                        <h3>E-Commerce Product Page</h3>
+                        <p>This repository contains the front-end page designs for my NTI graduation project – an
+                            e-commerce platform targeting clothing sales for young adults (ages 18–30). The pages are
+                            built using only HTML and CSS to prototype the UI structure and visual layout before
+                            integrating the dynamic functionality with the MEAN stack.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/aya-anwar22/UI_Design_for_E-commerce"><i
+                                    class="fab fa-github"></i> Code</a>
+                            <a href="https://aya-anwar22.github.io/UI_Design_for_E-commerce/"><i
+                                    class="fas fa-external-link-alt"></i> Live</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="image.png" alt="ALX Projects">
+                    </div>
+                    <div class="project-info">
+                        <h3>ALX System Engineering</h3>
+                        <p>Collection of projects covering foundational DevOps concepts like Bash scripting, server
+                            configuration, and infrastructure design.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Bash</span>
+                            <span class="tech-tag">Linux</span>
+                            <span class="tech-tag">Nginx</span>
+                            <span class="tech-tag">HAProxy</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/aya-anwar22/alx-system_engineering-devops"><i
+                                    class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-image">
+                    </div>
+                    <div class="project-info">
+                        <h3>ALX Low-Level Programming in C</h3>
+                        <p>Comprehensive set of C programming projects focused on mastering low-level concepts such as
+                            memory management, data structures, dynamic libraries, recursion, file I/O, bit
+                            manipulation, and algorithm design. This repository showcases problem-solving skills and
+                            deep understanding of the C language, built as part of the ALX Software Engineering program.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">C</span>
+                            <span class="tech-tag">Data Structures</span>
+                            <span class="tech-tag">Memory Management</span>
+                            <span class="tech-tag">File I/O</span>
+                            <span class="tech-tag">Algorithms</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/aya-anwar22/alx-low_level_programming"><i
+                                    class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div class="project-image">
+                    </div>
+                    <div class="project-info">
+                        <h3>Monty Bytecode Interpreter</h3>
+                        <p>Monty is a simple bytecode interpreter written in C, capable of parsing and executing Monty
+                            bytecode files line by line. It uses a dynamic stack or queue data structure, depending on
+                            the opcode instructions. The project focuses on deep understanding of LIFO/FIFO mechanisms,
+                            pointer manipulation, and memory handling in low-level programming.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">C</span>
+                            <span class="tech-tag">Stack</span>
+                            <span class="tech-tag">Queue</span>
+                            <span class="tech-tag">LIFO</span>
+                            <span class="tech-tag">Memory Management</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/aya-anwar22/monty"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <div class="project-image">
+                    </div>
+                    <div class="project-info">
+                        <h3>Custom printf Function</h3>
+                        <p>This project replicates the standard C <code>printf</code> function. It supports various
+                            format specifiers including characters, strings, and percentages. The project was built
+                            using variadic functions, buffer handling, and custom format parsing to provide formatted
+                            output similar to the standard library.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">C</span>
+                            <span class="tech-tag">Variadic Functions</span>
+                            <span class="tech-tag">Format Specifiers</span>
+                            <span class="tech-tag">Custom Implementation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/aya-anwar22/printf"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education & Training</h2>
+            </div>
+            <div class="timeline">
+                <!-- ALX -->
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 - 2024</div>
+                    <div class="timeline-content">
+                        <h3>ALX Africa</h3>
+                        <h4>Software Engineering Program</h4>
+                        <p>Intensive 12-month software engineering program covering full-stack development, algorithms,
+                            system engineering, and backend technologies.</p>
+                        <p>Key projects: System engineering, Higher level programming, Backend storage, JavaScript
+                            backend development.</p>
+                    </div>
+                </div>
+
+                <!-- NTI -->
+                <div class="timeline-item">
+                    <div class="timeline-date">2025 - Present</div>
+                    <div class="timeline-content">
+                        <h3>NTI</h3>
+                        <h4>MEAN Stack Development</h4>
+                        <p>Currently expanding expertise in MongoDB, Express.js, Angular, and Node.js stack for modern
+                            web application development.</p>
+                    </div>
+                </div>
+
+                <!-- University -->
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 - Present</div>
+                    <div class="timeline-content">
+                        <h3>University</h3>
+                        <h4> Business Information Systems (BIS)</h4>
+                        <p>I’m currently pursuing a Bachelor's degree in Business Information Systems (BIS).
+</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <a href="mailto:aya786930@gmail.com">aya786930@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <a href="tel:+201097206111">+20 1097206111</a>
+                        </div>
+                    </div>
+        
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/aya-anwar22?tab=repositories"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/aya-anwar-473115279/"><i class="fab fa-linkedin"></i></a>
+                <a href="https://x.com/AyaAnwar501"><i class="fab fa-twitter"></i></a>
+                <a href="http://medium.com/@aya786930"><i class="fab fa-medium"></i></a>
+            </div>
+            <p class="copyright">© 2025 Aya Anwar. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
