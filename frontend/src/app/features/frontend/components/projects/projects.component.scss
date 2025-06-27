@@ -1,0 +1,113 @@
+#projects {
+  padding: 4rem 1rem;
+  background-color: #fefbff;
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    h2 {
+      font-size: 2.2rem;
+      color: var(--primary-color);
+    }
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .project-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-image {
+      height: 180px;
+      background-color: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .project-info {
+      padding: 1rem;
+
+      h3 {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+        color: #444;
+        margin-bottom: 0.8rem;
+        line-height: 1.4;
+      }
+
+      code {
+        background-color: #eee;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-family: monospace;
+        color: #444;
+      }
+
+      .project-tech {
+        margin: 1rem 0;
+
+        .tech-tag {
+          display: inline-block;
+          background-color: var(--accent-color);
+          color: white;
+          padding: 0.3rem 0.6rem;
+          border-radius: 20px;
+          font-size: 0.75rem;
+          margin: 0 0.3rem 0.5rem 0;
+        }
+      }
+
+      .project-links {
+        a {
+          display: inline-block;
+          color: var(--primary-color);
+          text-decoration: none;
+          margin-right: 1rem;
+          font-size: 0.9rem;
+
+          i {
+            margin-right: 5px;
+          }
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}

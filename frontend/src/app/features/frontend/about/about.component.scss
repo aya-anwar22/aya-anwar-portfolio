@@ -1,0 +1,53 @@
+.about-section {
+  padding: 4rem 1rem;
+  background-color: var(--light-color);
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    h2 {
+      font-size: 2.2rem;
+      color: var(--primary-color);
+    }
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @media(min-width: 768px) {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .about-text {
+      flex: 1;
+      color: var(--text-color);
+
+      h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+      }
+
+      p {
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
+    }
+
+   .about-image {
+  flex: 1;
+  text-align: right; // 👉 تخلي الصورة تتحرك لليمين
+
+  img {
+    width: 100%; // 👉 تاخد العرض المتاح
+    max-width: 400px; // حد أقصى لحجمها عشان متكبرش أوي
+    border-radius: 10px;
+    border: 4px solid var(--accent-color);
+  }
+}
+
+  }
+}

@@ -1,0 +1,139 @@
+<div class="admin-container">
+  <main class="main-content">
+    <header class="admin-header">
+      <div class="header-left">
+        <h1>Dashboard Overview</h1>
+      </div>
+      <div class="header-right">
+        <div class="notifications">
+          <i class="fas fa-bell"></i>
+          <span class="badge">3</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="dashboard-content">
+      <div class="stats-cards">
+        <div class="stat-card">
+          <div class="stat-icon bg-blue">
+            <i class="fas fa-eye"></i>
+          </div>
+          <div class="stat-info">
+            <h3>{{ totalViews }}</h3>
+            <p>Total Views</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon bg-green">
+            <i class="fas fa-project-diagram"></i>
+          </div>
+          <div class="stat-info">
+            <h3>{{ totalProjects }}</h3>
+            <p>Projects</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon bg-orange">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="stat-info">
+            <h3>{{ totalMessages }}</h3>
+            <p>New Messages</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon bg-purple">
+            <i class="fas fa-code-branch"></i>
+          </div>
+          <div class="stat-info">
+            <h3>{{ totalSkills }}</h3>
+            <p>Skills</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-row">
+
+
+          <div class="recent-messages card">
+  <div class="card-header">
+    <h3>Recent Messages</h3>
+    <a href="/admin/contact" class="view-all">View All</a>
+  </div>
+  <div class="card-body">
+<div class="recent-messages card">
+  <div class="card-header">
+    <h3>Recent Messages</h3>
+    <a routerLink="/admin/contact" class="view-all">View All</a>
+  </div>
+  <div class="card-body">
+    <div *ngIf="recentMessages && recentMessages.length; else noMessages">
+      <div *ngFor="let msg of recentMessages" class="message-item">
+        <div class="message-avatar">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="message-content">
+          <h4>{{ msg.name }}</h4>
+          <p>{{ msg.message }}</p>
+          <span class="message-time">
+            {{ msg.email }} |
+            <span *ngIf="msg.isReplyed" class="replied">✔️ Replied</span>
+            <span *ngIf="!msg.isReplyed" class="pending">⏳ Pending</span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <ng-template #noMessages>
+      <p>No messages yet.</p>
+    </ng-template>
+  </div>
+</div>
+
+    <ng-template #noMessages>
+      <p>No messages yet.</p>
+    </ng-template>
+  </div>
+</div>
+
+
+        <div class="project-status card">
+          <div class="card-header">
+            <h3>Project Status</h3>
+          </div>
+          <div class="card-body">
+            <!-- بيانات ستاتيك مؤقتًا -->
+            <div class="status-item">
+              <div class="status-info">
+                <h4>CodeEagle</h4>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 100%"></div>
+                </div>
+              </div>
+              <span class="status-badge completed">Live</span>
+            </div>
+            <div class="status-item">
+              <div class="status-info">
+                <h4>E-Commerce UI</h4>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 80%"></div>
+                </div>
+              </div>
+              <span class="status-badge in-progress">In Progress</span>
+            </div>
+            <div class="status-item">
+              <div class="status-info">
+                <h4>Monty Interpreter</h4>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 100%"></div>
+                </div>
+              </div>
+              <span class="status-badge completed">Completed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+   
+    </div>
+  </main>
+</div>

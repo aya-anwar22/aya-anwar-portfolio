@@ -1,0 +1,92 @@
+<div class="about-admin-container">
+  <div class="about-header">
+    <h2><i class="fas fa-user-edit"></i> About Section Management</h2>
+    <p class="subtitle">Manage My personal information and bio</p>
+  </div>
+
+  <div class="form-section card">
+    <div class="card-body">
+      <form (submit)="submitForm(); $event.preventDefault()" class="about-form">
+        <div class="form-group">
+          <label for="title" class="form-label">
+            <i class="fas fa-heading"></i> Title
+          </label>
+          <input type="text" id="title" class="form-control" 
+                 [(ngModel)]="title" name="title" required
+                 placeholder="e.g. Senior Web Developer">
+        </div>
+
+        <div class="form-group">
+          <label for="bio" class="form-label">
+            <i class="fas fa-align-left"></i> Bio
+          </label>
+          <textarea id="bio" class="form-control" rows="5"
+                    [(ngModel)]="bio" name="bio" required
+                    placeholder="Write a compelling bio about yourself..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="photo" class="form-label">
+            <i class="fas fa-camera"></i> Profile Photo
+          </label>
+          <div class="file-upload-wrapper">
+            <input type="file" id="photo" class="file-upload-input" 
+                   (change)="onFileSelected($event)" [required]="!isEditing">
+            <label for="photo" class="file-upload-label">
+              <i class="fas fa-cloud-upload-alt"></i>
+              <span>{{ selectedFile ? selectedFile.name : 'Choose a file...' }}</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-save">
+            <i class="fas" [class.fa-save]="!isEditing" [class.fa-sync-alt]="isEditing"></i>
+            {{ isEditing ? 'Update' : 'Save' }}
+          </button>
+          <button type="button" class="btn btn-cancel" (click)="resetForm()" *ngIf="isEditing">
+            <i class="fas fa-times"></i> Cancel
+          </button>
+        </div>
+
+        <div class="alert-message" *ngIf="message" [class.success]="message.includes('success')">
+          <i class="fas" [class.fa-check-circle]="message.includes('success')" 
+             [class.fa-exclamation-circle]="!message.includes('success')"></i>
+          {{ message }}
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="current-info-section">
+    <h3><i class="fas fa-info-circle"></i> Current About Information</h3>
+    
+    <div *ngIf="firstAbout; else noData" class="current-info-card">
+      <div class="profile-image-container">
+        <img [src]="firstAbout.photoUrl" alt="Profile Photo" class="profile-image">
+        <div class="image-overlay">
+          <i class="fas fa-image"></i>
+        </div>
+      </div>
+      <div class="info-content">
+        <h4>{{ firstAbout.title }}</h4>
+        <p class="bio-text">{{ firstAbout.bio }}</p>
+        <div class="action-buttons">
+          <button class="btn btn-edit" (click)="editAbout()">
+            <i class="fas fa-edit"></i> Edit
+          </button>
+          <button class="btn btn-delete" (click)="deleteAbout()">
+            <i class="fas fa-trash-alt"></i> Delete
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noData>
+      <div class="no-data-placeholder">
+        <i class="fas fa-info-circle"></i>
+        <p>No about information available yet. Add your details to get started!</p>
+      </div>
+    </ng-template>
+  </div>
+</div>

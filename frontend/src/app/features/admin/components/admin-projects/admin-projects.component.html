@@ -1,0 +1,66 @@
+<div class="project-admin-container">
+  <h2><i class="fas fa-folder-open"></i> Project Management</h2>
+
+  <form (submit)="submitForm(); $event.preventDefault()">
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" [(ngModel)]="title" name="title" required>
+    </div>
+
+    <div class="form-group">
+      <label>Description</label>
+      <textarea [(ngModel)]="description" name="description" rows="3" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Tech Stack</label>
+      <input type="text" [(ngModel)]="techStack" name="techStack" required placeholder="e.g. Angular, Node.js, MongoDB">
+    </div>
+
+    <div class="form-group">
+      <label>GitHub Link</label>
+      <input type="url" [(ngModel)]="githubLink" name="githubLink" required>
+    </div>
+
+    <div class="form-group">
+      <label>Live Demo Link</label>
+      <input type="url" [(ngModel)]="liveDemo" name="liveDemo" required>
+    </div>
+
+    <div class="form-group">
+      <label>Project Image</label>
+      <input type="file" (change)="onFileSelected($event)" [required]="!isEditing">
+    </div>
+
+    <button type="submit" class="btn btn-save">
+      <i class="fas" [class.fa-save]="!isEditing" [class.fa-sync-alt]="isEditing"></i>
+      {{ isEditing ? 'Update' : 'Save' }}
+    </button>
+
+    <button *ngIf="isEditing" type="button" class="btn btn-cancel" (click)="resetForm()">
+      <i class="fas fa-times"></i> Cancel
+    </button>
+
+    <div class="alert-message" *ngIf="message">{{ message }}</div>
+  </form>
+
+  <div *ngIf="allProjects.length > 0; else noProjects">
+    <h3>All Projects</h3>
+    <div *ngFor="let project of allProjects" class="project-item">
+      <img [src]="project.imageUrl" alt="Project Image" width="100" *ngIf="project.imageUrl">
+      <p><strong>Title:</strong> {{ project.title }}</p>
+      <p><strong>Description:</strong> {{ project.description }}</p>
+      <p><strong>Tech Stack:</strong> {{ project.techStack }}</p>
+      <p><strong>GitHub:</strong> <a [href]="project.githubLink" target="_blank">{{ project.githubLink }}</a></p>
+      <p><strong>Live Demo:</strong> <a [href]="project.liveDemo" target="_blank">{{ project.liveDemo }}</a></p>
+
+      <button (click)="editProject(project)" class="btn btn-edit"><i class="fas fa-edit"></i> Edit</button>
+      <button (click)="deleteProject(project._id)" class="btn btn-delete"><i class="fas fa-trash-alt"></i> Delete</button>
+      <hr>
+    </div>
+  </div>
+
+  <ng-template #noProjects>
+    <p>No projects added yet.</p>
+  </ng-template>
+</div>

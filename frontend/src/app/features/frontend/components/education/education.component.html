@@ -1,0 +1,19 @@
+<section id="education" *ngIf="educations.length">
+  <div class="container">
+    <div class="section-title">
+      <h2>Education & Training</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item" *ngFor="let edu of educations">
+        <div class="timeline-date">
+          {{ formatDate(edu.startDate) }} - {{ formatDate(edu.endDate) }}
+        </div>
+        <div class="timeline-content">
+          <h3>{{ edu.educationName }}</h3>
+          <h4>{{ edu.program }}</h4>
+          <p>{{ edu.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

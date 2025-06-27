@@ -1,0 +1,31 @@
+
+<div class="contact-admin-container">
+  <h2>📬 Contact Messages</h2>
+
+  <div *ngIf="message" class="alert">{{ message }}</div>
+
+  <div *ngIf="allMessages.length > 0; else noMessages">
+    <div *ngFor="let msg of allMessages" class="message-card">
+      <p><strong>Name:</strong> {{ msg.name }}</p>
+      <p><strong>Email:</strong> {{ msg.email }}</p>
+      <p><strong>Subject:</strong> {{ msg.subject }}</p>
+      <p><strong>Message:</strong> {{ msg.message }}</p>
+      <p><strong>Status:</strong> 
+        <span [ngClass]="{'replied': msg.isReplyed, 'not-replied': !msg.isReplyed}">
+          {{ msg.isReplyed ? 'Replied' : 'Not Replied' }}
+        </span>
+      </p>
+
+      <button (click)="selectMessage(msg._id)">Reply</button>
+      <div *ngIf="selectedMessageId === msg._id">
+        <textarea [(ngModel)]="adminReply" placeholder="Write your reply..."></textarea>
+        <button (click)="sendReply()">Send Reply</button>
+      </div>
+      <hr>
+    </div>
+  </div>
+
+  <ng-template #noMessages>
+    <p>No contact messages found.</p>
+  </ng-template>
+</div>

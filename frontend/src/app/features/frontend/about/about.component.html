@@ -1,0 +1,17 @@
+<section id="about" class="about-section" *ngIf="about">
+  <div class="container">
+    <div class="section-title">
+      <h2>About Me</h2>
+    </div>
+
+    <div class="about-content">
+      <div class="about-text">
+        <h3>{{ about.title }}</h3>
+        <p>{{ about.bio }}</p>
+      </div>
+      <div class="about-image">
+<img [src]="about.photoUrl" alt="Aya Anwar working" />
+      </div>
+    </div>
+  </div>
+</section>

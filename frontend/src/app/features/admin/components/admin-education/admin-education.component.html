@@ -1,0 +1,60 @@
+<div class="education-admin-container">
+  <h2><i class="fas fa-graduation-cap"></i> Education Management</h2>
+
+  <form (submit)="submitForm(); $event.preventDefault()">
+    <div class="form-group">
+      <label>Education Name</label>
+      <input type="text" [(ngModel)]="educationName" name="educationName" required>
+    </div>
+
+    <div class="form-group">
+      <label>Program</label>
+      <input type="text" [(ngModel)]="program" name="program" required>
+    </div>
+
+    <div class="form-group">
+      <label>Start Date</label>
+      <input type="date" [(ngModel)]="startDate" name="startDate" required>
+    </div>
+
+    <div class="form-group">
+      <label>End Date</label>
+      <input type="date" [(ngModel)]="endDate" name="endDate" required>
+    </div>
+
+    <div class="form-group">
+      <label>Description</label>
+      <textarea [(ngModel)]="description" name="description" rows="4" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-save">
+      <i class="fas" [class.fa-save]="!isEditing" [class.fa-sync-alt]="isEditing"></i>
+      {{ isEditing ? 'Update' : 'Save' }}
+    </button>
+
+    <button *ngIf="isEditing" type="button" class="btn btn-cancel" (click)="resetForm()">
+      <i class="fas fa-times"></i> Cancel
+    </button>
+
+    <div class="alert-message" *ngIf="message">{{ message }}</div>
+  </form>
+
+  <div *ngIf="allEducations.length > 0; else noEducation">
+    <h3>All Educations</h3>
+    <div *ngFor="let edu of allEducations" class="education-item">
+      <p><strong>Name:</strong> {{ edu.educationName }}</p>
+      <p><strong>Program:</strong> {{ edu.program }}</p>
+      <p><strong>From:</strong> {{ edu.startDate | date }}</p>
+      <p><strong>To:</strong> {{ edu.endDate | date }}</p>
+      <p><strong>Description:</strong> {{ edu.description }}</p>
+
+      <button (click)="editEducation(edu)" class="btn btn-edit"><i class="fas fa-edit"></i> Edit</button>
+      <button (click)="deleteEducation(edu._id)" class="btn btn-delete"><i class="fas fa-trash-alt"></i> Delete</button>
+      <hr>
+    </div>
+  </div>
+
+  <ng-template #noEducation>
+    <p>No education data available yet.</p>
+  </ng-template>
+</div>
