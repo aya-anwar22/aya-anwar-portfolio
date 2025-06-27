@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ContactService {
-  private contactUrl = 'http://localhost:3000/api/v1/contact';
-  private replyUrl = 'http://localhost:3000/api/v1/contact/reply-admin';
+  private contactUrl = 'https://aya-anwar-portfolio-danr.vercel.app/api/v1/contact';
+  private replyUrl = 'https://aya-anwar-portfolio-danr.vercel.app/api/v1/contact/reply-admin';
 
   constructor(private http: HttpClient) {}
 

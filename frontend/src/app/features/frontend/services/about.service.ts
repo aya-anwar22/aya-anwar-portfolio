@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AboutService {
-  private apiUrl = 'http://localhost:3000/api/v1/about';
+  private apiUrl = 'https://aya-anwar-portfolio-danr.vercel.app/api/v1/about';
   constructor(private http: HttpClient) {}
   getFirstAbout(): Observable<any> {
     return this.http.get(this.apiUrl);

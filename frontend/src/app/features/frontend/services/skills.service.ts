@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SkillsService {
-  private apiUrl = 'http://localhost:3000/api/v1/skill';
+  private apiUrl = 'https://aya-anwar-portfolio-danr.vercel.app/api/v1/skill';
 
   constructor(private http: HttpClient) {}
 
