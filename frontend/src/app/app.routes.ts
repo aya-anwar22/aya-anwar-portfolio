@@ -55,6 +55,8 @@ export const routes: Routes = [
       { path: 'education', component: AdminEducationComponent },
 
       { path: 'contact', component: AdminContactComponent },
+      {path: 'logout',component: LogoutComponent}
+
     ]
   }
 ];
