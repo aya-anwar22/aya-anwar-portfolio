@@ -26,6 +26,6 @@ export class EducationComponent implements OnInit {
   }
 
   formatDate(date: string): string {
-    return new Date(date).getFullYear().toString(); // 2025
+    return new Date(date).getFullYear().toString(); 
   }
 }

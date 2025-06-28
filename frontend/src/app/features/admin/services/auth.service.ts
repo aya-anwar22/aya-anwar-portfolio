@@ -12,7 +12,6 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  // تسجيل الدخول وتخزين التوكنات
   login(data: { email: string; password: string }): Observable<any> {
     return this.http.post(`${this.api}`, data).pipe(
       tap((res: any) => {
@@ -22,7 +21,6 @@ export class AuthService {
     );
   }
 
-  // تجديد التوكن تلقائيًا باستخدام الريفرش توكن
   refreshToken(): Observable<any> {
     const refreshToken = localStorage.getItem('refreshToken');
     return this.http.post(`${this.api}/refresh-token`, { refreshToken }).pipe(
@@ -32,7 +30,6 @@ export class AuthService {
     );
   }
 
-  // تسجيل الخروج وحذف التوكنات
   logout(): Observable<any> {
     const refreshToken = localStorage.getItem('refreshToken');
     return this.http.post(`${this.api}/logout`, { refreshToken }).pipe(
@@ -43,17 +40,14 @@ export class AuthService {
     );
   }
 
-  // جلب التوكن الحالي
   getAccessToken(): string | null {
     return localStorage.getItem('accessToken');
   }
 
-  // جلب الريفرش توكن الحالي
   getRefreshToken(): string | null {
     return localStorage.getItem('refreshToken');
   }
 
-  // التأكد من حالة الدخول
   isLoggedIn(): boolean {
     return !!this.getAccessToken();
   }

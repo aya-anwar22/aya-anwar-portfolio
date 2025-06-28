@@ -24,7 +24,6 @@ import { LogoutComponent } from './features/auth/logout/logout.component';
 
 export const routes: Routes = [
 
-  //  USER LAYOUT ROUTES
   {
     path: '',
     component: UserLayoutComponent,
@@ -41,7 +40,6 @@ export const routes: Routes = [
     ]
   },
 
-  // ADMIN LAYOUT ROUTES
   {
     path: 'admin',
     component: LayoutComponent,

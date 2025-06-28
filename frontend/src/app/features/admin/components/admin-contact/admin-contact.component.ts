@@ -1,4 +1,3 @@
-// src/app/pages/admin/admin-contact/admin-contact.component.ts
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -58,7 +57,7 @@ export class AdminContactComponent implements OnInit {
         this.message = 'Reply sent successfully!';
         this.adminReply = '';
         this.selectedMessageId = null;
-        this.fetchMessages(); // refresh
+        this.fetchMessages(); 
       },
       error: (err: any) => {
         console.error('Failed to send reply:', err);

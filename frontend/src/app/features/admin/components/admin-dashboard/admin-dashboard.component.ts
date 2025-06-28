@@ -7,13 +7,12 @@ import { SkillsService } from '../../services/skills.service';
 
 @Component({
   selector: 'app-admin-dashboard',
-   standalone: true, // لو standalone فعلاً
+   standalone: true, 
   imports: [CommonModule],
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.scss']
 })
 export class AdminDashboardComponent implements OnInit {
-  totalViews = 12345; // ثابت مؤقتًا
   totalProjects = 0;
   totalMessages = 0;
   totalSkills = 0;
@@ -33,10 +32,10 @@ console.log('Recent 3 messages:', this.recentMessages);
     });
 
     this.contactService.getAllMessages().subscribe(res => {
-    console.log("Response from backend:", res); // دي شكلها Array
+    console.log("Response from backend:", res);
     const allMessages = Array.isArray(res) ? res : res.contact || [];
     this.totalMessages = allMessages.length;
-    this.recentMessages = allMessages.slice(-3).reverse(); // آخر ٣ رسايل
+    this.recentMessages = allMessages.slice(-3).reverse();
     console.log("Recent 3 messages:", this.recentMessages);
   });
 
