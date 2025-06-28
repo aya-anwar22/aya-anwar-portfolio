@@ -1,14 +1,14 @@
-// src/app/services/auth.service.ts
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
-
+import { environment } from '../../../../environments/environment.prod'
+ 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private api = 'https://aya-anwar-portfolio-danr.vercel.app/api/v1/auth';
+  private api = `${environment.apiUrl}/auth`;
 
   constructor(private http: HttpClient) {}
 

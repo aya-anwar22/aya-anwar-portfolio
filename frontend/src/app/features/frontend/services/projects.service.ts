@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../../environments/environment.prod'
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectService {
-  private apiUrl = 'https://aya-anwar-portfolio-danr.vercel.app/api/v1/project';
+  private apiUrl = `${environment.apiUrl}/project`;
 
   constructor(private http: HttpClient) {}
   getAllProjects(): Observable<any> {
