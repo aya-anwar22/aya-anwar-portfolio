@@ -13,9 +13,9 @@ $transition-speed: 0.3s;
   max-width: 1200px;
   transition: margin-left $transition-speed;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  
+
   /* When sidebar is collapsed */
-  .sidebar-collapsed + & {
+  .sidebar-collapsed+& {
     margin-left: 70px;
   }
 
@@ -60,7 +60,7 @@ $transition-speed: 0.3s;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
-      
+
       @media (max-width: 768px) {
         grid-template-columns: 1fr;
       }
@@ -76,14 +76,16 @@ $transition-speed: 0.3s;
         margin-bottom: 0.5rem;
         display: flex;
         align-items: center;
-        
+
         i {
           margin-right: 0.5rem;
           color: lighten($primary-color, 10%);
         }
       }
 
-      input, textarea, select {
+      input,
+      textarea,
+      select {
         width: 100%;
         padding: 0.75rem 1rem;
         border-radius: 8px;
@@ -108,7 +110,7 @@ $transition-speed: 0.3s;
       display: flex;
       gap: 1rem;
       margin-top: 1.5rem;
-      
+
       button {
         display: inline-flex;
         align-items: center;
@@ -184,7 +186,7 @@ $transition-speed: 0.3s;
       border-bottom: 1px solid #e9ecef;
       display: flex;
       align-items: center;
-      
+
       i {
         margin-right: 0.5rem;
         color: $primary-color;
@@ -198,7 +200,7 @@ $transition-speed: 0.3s;
       background: $light-gray;
       transition: all $transition-speed;
       position: relative;
-      
+
       &:hover {
         transform: translateY(-3px);
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -220,7 +222,7 @@ $transition-speed: 0.3s;
         display: flex;
         gap: 2rem;
         margin-bottom: 1rem;
-        
+
         @media (max-width: 576px) {
           flex-direction: column;
           gap: 0.5rem;
@@ -231,7 +233,7 @@ $transition-speed: 0.3s;
         display: flex;
         gap: 1rem;
         margin-top: 1.5rem;
-        
+
         button {
           display: inline-flex;
           align-items: center;
@@ -285,7 +287,7 @@ $transition-speed: 0.3s;
     text-align: center;
     color: #8d99ae;
     font-style: italic;
-    
+
     i {
       font-size: 2rem;
       margin-bottom: 1rem;
@@ -299,8 +301,8 @@ $transition-speed: 0.3s;
   .education-admin-container {
     margin-left: 0;
     padding: 1.5rem;
-    
-    .sidebar-collapsed + & {
+
+    .sidebar-collapsed+& {
       margin-left: 0;
     }
   }
@@ -311,10 +313,11 @@ $transition-speed: 0.3s;
     form {
       padding: 1.5rem;
     }
-    
-    .form-actions, .education-actions {
+
+    .form-actions,
+    .education-actions {
       flex-direction: column;
-      
+
       button {
         width: 100%;
       }
