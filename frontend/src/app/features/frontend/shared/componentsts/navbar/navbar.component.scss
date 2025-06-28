@@ -1,4 +1,7 @@
 
+:root {
+  --text-color: #ffffff; /* أو أي كود لون أبيض تفضله */
+}
 .navbar {
   background-color: var(--primary-color);
   color: var(--text-color);
@@ -49,7 +52,7 @@
 }
 
 .nav-links a {
-  color: var(--text-color);
+  color: white; /* تغيير من var(--text-color) إلى white */
   font-weight: 500;
   text-decoration: none;
   position: relative;
@@ -58,23 +61,11 @@
 }
 
 .nav-links a::before {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: var(--text-color);
-  transition: width 0.3s ease;
-}
-
-.nav-links a:hover::before {
-  width: 100%;
+  background-color: white; /* تغيير من var(--text-color) إلى white */
 }
 
 .nav-links a:hover {
-  color: white;
-  transform: translateY(-2px);
+  color: white; /* هذا بالفعل مضبوط على white */
 }
 
 /* تأثير تغيير الخلفية عند التمرير */
