@@ -41,6 +41,10 @@ exports.login = asyncHandler(async (req, res) => {
   if (email !== process.env.ADMIN_EMAIL) {
     return res.status(403).json({ message: "Access Denied" });
   }
+  if(password !== process.env.EMAIL_PASSWORD){
+      return res.status(401).json({ message: "Access Denied" });
+
+  }
 
   let user = await User.findOne({ email });
 
