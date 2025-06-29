@@ -10,7 +10,7 @@ async function generateTokens(user, regenerateRefreshToken = false) {
     const accessToken = jwt.sign(
         { userId: user.id },
         process.env.ACCESS_TOKEN_SECRET,
-        { expiresIn: "30d" }
+        { expiresIn: "10m" }
     );
 
     let refreshToken = user.refreshToken;
