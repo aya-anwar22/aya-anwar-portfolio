@@ -20,6 +20,7 @@ import { ContactComponent } from './features/frontend/components/contact/contact
 import { UserLayoutComponent } from './features/frontend/components/user-layout/user-layout.component';
 import { AdminDashboardComponent } from './features/admin/components/admin-dashboard/admin-dashboard.component';
 import { LogoutComponent } from './features/auth/logout/logout.component';
+import { ServicesComponent } from './features/frontend/components/services/services.component';
 // import { ContactComponent } from './features/frontend/contact/contact.component';
 
 export const routes: Routes = [
@@ -36,6 +37,7 @@ export const routes: Routes = [
       { path: 'education', component: EducationComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'logout', component: LogoutComponent },
+      { path: 'services', component: ServicesComponent },
 
     ]
   },
