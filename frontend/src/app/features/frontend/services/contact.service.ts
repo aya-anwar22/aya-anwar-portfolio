@@ -7,7 +7,7 @@ import { environment } from '../../../../environments/environment.prod'
   providedIn: 'root'
 })
 export class ContactService {
-  private apiUrl = `${environment.apiUrl}/contact`;
+  private apiUrl = `https://aya-anwar-portfolio-danr.vercel.app/api/v1/contact`;
 
   constructor(private http: HttpClient) {}
 
