@@ -12,7 +12,7 @@ import { CertificationsComponent } from '../../components/ certifications/certif
   imports: [AboutComponent, SkillsComponent, ProjectsComponent, EducationComponent, ContactComponent, ServicesComponent, CertificationsComponent],
 
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  // styleUrl: './home.component.scss'
 })
 export class HomeComponent {
 
