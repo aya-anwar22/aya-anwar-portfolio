@@ -1,12 +1,10 @@
 #skills {
-  /* خلفية داكنة دراماتيكية */
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   padding: 5rem 1rem;
   position: relative;
   overflow: hidden;
   color: #fff;
 
-  /* دواير ضوئية في الخلفية عشان الشكل الكرييتف */
   &::before {
     content: '';
     position: absolute;
@@ -17,6 +15,7 @@
     background: radial-gradient(circle, rgba(138, 112, 181, 0.2) 0%, transparent 70%);
     border-radius: 50%;
     filter: blur(50px);
+    pointer-events: none;
   }
 
   &::after {
@@ -29,16 +28,17 @@
     background: radial-gradient(circle, rgba(75, 59, 107, 0.3) 0%, transparent 70%);
     border-radius: 50%;
     filter: blur(60px);
+    pointer-events: none;
   }
 
   .container {
     max-width: 1100px;
     margin: 0 auto;
     position: relative;
-    z-index: 2; /* عشان يظهر فوق الدواير */
+    z-index: 2;
+    width: 100%;
   }
 
-  /* تنسيق العنوان */
   .section-title {
     text-align: center;
     margin-bottom: 4rem;
@@ -50,6 +50,7 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      -webkit-text-fill-color: transparent;
       letter-spacing: 1px;
       margin-bottom: 0.5rem;
     }
@@ -62,14 +63,12 @@
     }
   }
 
-  /* حاوية المهارات */
   .skills-cloud {
     display: flex;
     flex-direction: column;
     gap: 3rem;
   }
 
-  /* كل كاتيجوري */
   .skill-group {
     text-align: center;
 
@@ -80,7 +79,6 @@
       position: relative;
       display: inline-block;
 
-      /* خط متدرج تحت العنوان */
       &::after {
         content: '';
         position: absolute;
@@ -94,7 +92,6 @@
       }
     }
 
-    /* حاوية الـ Tags */
     .tags-wrapper {
       display: flex;
       flex-wrap: wrap;
@@ -104,33 +101,31 @@
       margin: 0 auto;
     }
 
-    /* شكل المهارة الواحدة (الـ Pill) */
     .skill-tag {
-      background: rgba(255, 255, 255, 0.05); /* شفاف شوية */
+      background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
       color: #e0e0e0;
       padding: 0.6rem 1.5rem;
-      border-radius: 50px; /* شكل كبسولة */
+      border-radius: 50px;
       font-size: 1rem;
       font-weight: 500;
       cursor: default;
-      backdrop-filter: blur(5px); /* تأثير زجاجي */
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* أنيميشن مرن */
-
-      /* عشان يبقى فيه لمسة كرييتف، ممكن نلون حدود المهارة حسب الكاتيجوري، بس هنا هنعمل تأثير عام */
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: inline-block;
 
       &:hover {
         background: #8a70b5;
         border-color: #8a70b5;
         color: #fff;
-        transform: scale(1.1) translateY(-3px); /* تكبير وارتفاع */
-        box-shadow: 0 10px 20px rgba(138, 112, 181, 0.4); /* وهج بنفسجي */
+        transform: scale(1.1) translateY(-3px);
+        box-shadow: 0 10px 20px rgba(138, 112, 181, 0.4);
       }
     }
   }
 }
 
-/* تعديلات الموبايل */
 @media (max-width: 768px) {
   #skills {
     padding: 3rem 1rem;

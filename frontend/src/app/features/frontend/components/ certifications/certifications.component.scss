@@ -4,7 +4,6 @@
   position: relative;
   overflow: hidden;
 
-  /* لمسة كرييتف: دايرة ضوئية */
   &::before {
     content: '';
     position: absolute;
@@ -14,6 +13,7 @@
     height: 300px;
     background: radial-gradient(circle, rgba(138, 112, 181, 0.08) 0%, transparent 70%);
     border-radius: 50%;
+    pointer-events: none;
   }
 
   .container {
@@ -21,9 +21,9 @@
     margin: 0 auto;
     position: relative;
     z-index: 2;
+    width: 100%;
   }
 
-  /* العنوان */
   .section-header {
     text-align: center;
     margin-bottom: 3rem;
@@ -45,6 +45,7 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      -webkit-text-fill-color: transparent;
       margin-bottom: 1rem;
     }
 
@@ -57,7 +58,6 @@
     }
   }
 
-  /* زرار الـ CV */
   .cv-container {
     text-align: center;
     margin-bottom: 3rem;
@@ -88,7 +88,6 @@
     }
   }
 
-  /* شبكة الشهادات */
   .certificates-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -103,7 +102,6 @@
     }
   }
 
-  /* كارت الشهادة */
   .certificate-card {
     display: flex;
     flex-direction: column;
@@ -122,15 +120,14 @@
 
       .cert-image-wrapper {
         img {
-          transform: scale(1.05); /* تكبير الصورة */
+          transform: scale(1.05);
         }
         .image-overlay {
-          opacity: 1; /* إظهار الاوفرلاي */
+          opacity: 1;
         }
       }
     }
 
-    /* صورة الشهادة */
     .cert-image-wrapper {
       position: relative;
       height: 200px;
@@ -140,12 +137,12 @@
       img {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* عشان تملى المساحة */
-        object-position: top; /* تركز على الجزء العلوي من الشهادة */
+        object-fit: cover;
+        object-position: top;
         transition: transform 0.5s ease;
+        display: block;
       }
 
-      /* الاوفرلاي اللي بيظهر عند الهوفر */
       .image-overlay {
         position: absolute;
         top: 0;
@@ -169,7 +166,6 @@
       }
     }
 
-    /* تفاصيل الشهادة */
     .cert-info {
       padding: 1.5rem;
       display: flex;
@@ -189,6 +185,8 @@
         font-size: 0.8rem;
         margin-bottom: 0.8rem;
         font-weight: 600;
+        gap: 0.5rem;
+        flex-wrap: wrap;
 
         .issuer {
           color: #8a70b5;
@@ -209,7 +207,6 @@
   }
 }
 
-/* الموبايل */
 @media (max-width: 768px) {
   .certifications-section {
     padding: 3rem 1rem;

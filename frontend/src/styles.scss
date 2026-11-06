@@ -1,18 +1,8 @@
 :root {
-  --primary-color: #4B3F72;
-  --accent-color: #BFA2DB;
-  --light-color: #F9F6FF;
-  --text-color: #333;
+  --primary-color: #4b3f72;
+  --accent-color: #8a70b5;
+  --dark-color: #2b2d42;
+  --text-color: #555;
+  --light-color: #f3f0f7;
   --white: #ffffff;
-}
-
-
-/* 1. النزول الناعم */
-html {
-  scroll-behavior: smooth;
-}
-
-/* 2. مساحة فوق كل قسم عشان الـ Navbar الثابت ميغطيش على العناوين */
-section[id], div[id="home"] {
-  scroll-margin-top: 80px; /* غيري الرقم ده لو الـ Navbar أطول أو أقصر */
 }

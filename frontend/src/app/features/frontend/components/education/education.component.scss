@@ -1,10 +1,9 @@
 #education {
   padding: 5rem 1rem;
-  background-color: #fdfcff; /* نفس خلفية قسم المشاريع */
+  background-color: #fdfcff;
   position: relative;
   overflow: hidden;
 
-  /* لمسة كرييتف: دايرة ضوئية في الخلفية */
   &::before {
     content: '';
     position: absolute;
@@ -14,16 +13,17 @@
     height: 300px;
     background: radial-gradient(circle, rgba(138, 112, 181, 0.08) 0%, transparent 70%);
     border-radius: 50%;
+    pointer-events: none;
   }
 
   .container {
-    max-width: 1000px; /* عرض أقل عشان الخط الزمني يبان */
+    max-width: 1000px;
     margin: 0 auto;
     position: relative;
     z-index: 2;
+    width: 100%;
   }
 
-  /* تنسيق العنوان */
   .section-title {
     text-align: center;
     margin-bottom: 4rem;
@@ -35,6 +35,7 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      -webkit-text-fill-color: transparent;
       margin-bottom: 0.5rem;
     }
 
@@ -47,41 +48,36 @@
     }
   }
 
-  /* الحاوية الرئيسية للخط الزمني */
   .timeline {
     position: relative;
     padding: 2rem 0;
 
-    /* الخط الرأسي */
     .timeline-line {
       position: absolute;
       left: 50%;
       top: 0;
       bottom: 0;
       width: 3px;
-      background: linear-gradient(to bottom, #e0dced, #8a70b5, #e0dced); /* تدرج بنفسجي */
+      background: linear-gradient(to bottom, #e0dced, #8a70b5, #e0dced);
       transform: translateX(-50%);
       border-radius: 2px;
     }
 
-    /* كل عنصر */
     .timeline-item {
       position: relative;
       width: 50%;
       padding: 1rem 3rem;
       box-sizing: border-box;
 
-      /* العناصر على الشمال */
       &.left {
         left: 0;
         text-align: right;
 
         .timeline-dot {
-          right: -9px; /* توسيط النقطة على الخط */
+          right: -9px;
         }
       }
 
-      /* العناصر على اليمين */
       &.right {
         left: 50%;
         text-align: left;
@@ -91,7 +87,6 @@
         }
       }
 
-      /* النقطة المتوهجة */
       .timeline-dot {
         position: absolute;
         top: 2rem;
@@ -101,21 +96,19 @@
         border: 4px solid #8a70b5;
         border-radius: 50%;
         z-index: 10;
-        box-shadow: 0 0 0 4px rgba(138, 112, 181, 0.2); /* هالة بنفسجية */
+        box-shadow: 0 0 0 4px rgba(138, 112, 181, 0.2);
         transition: all 0.3s ease;
       }
 
-      /* الكارت */
       .timeline-content {
         background: #ffffff;
         padding: 1.5rem;
         border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(75, 59, 107, 0.08); /* ظل بنفسجي خفيف */
+        box-shadow: 0 10px 30px rgba(75, 59, 107, 0.08);
         position: relative;
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         border: 1px solid #f0ebf7;
 
-        /* تاريخ */
         .timeline-date {
           display: inline-flex;
           align-items: center;
@@ -151,7 +144,6 @@
         }
       }
 
-      /* تأثير الهوفر */
       &:hover {
         .timeline-content {
           transform: translateY(-5px) scale(1.02);
@@ -161,7 +153,7 @@
 
         .timeline-dot {
           background: #8a70b5;
-          box-shadow: 0 0 0 6px rgba(138, 112, 181, 0.3); /* تكبير الهالة */
+          box-shadow: 0 0 0 6px rgba(138, 112, 181, 0.3);
           transform: scale(1.2);
         }
       }
@@ -169,9 +161,6 @@
   }
 }
 
-/* ========================================= */
-/* تعديلات الموبايل (الخط الزمني على الشمال) */
-/* ========================================= */
 @media (max-width: 768px) {
   #education {
     padding: 3rem 1rem;
@@ -182,20 +171,21 @@
 
     .timeline {
       .timeline-line {
-        left: 20px; /* الخط على الشمال */
+        left: 20px;
         transform: none;
       }
 
       .timeline-item {
         width: 100%;
         padding: 1rem 0 1rem 3rem;
-        text-align: left !important; /* الكل على الشمال */
+        text-align: left !important;
 
-        &.left, &.right {
+        &.left,
+        &.right {
           left: 0;
 
           .timeline-dot {
-            left: 11px; /* توسيط النقطة على الخط */
+            left: 11px;
             right: auto;
           }
         }

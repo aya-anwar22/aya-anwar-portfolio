@@ -1,11 +1,9 @@
 .projects-section {
-  /* خلفية فاتحة جداً (أوف وايت) */
   background-color: #fdfcff;
   padding: 5rem 1rem;
   position: relative;
   overflow: hidden;
 
-  /* لمسة كرييتف: دواير بنفسجية خفيفة جداً في الخلفية */
   &::before {
     content: '';
     position: absolute;
@@ -15,6 +13,7 @@
     height: 300px;
     background: radial-gradient(circle, rgba(138, 112, 181, 0.08) 0%, transparent 70%);
     border-radius: 50%;
+    pointer-events: none;
   }
 
   .container {
@@ -22,9 +21,9 @@
     margin: 0 auto;
     position: relative;
     z-index: 2;
+    width: 100%;
   }
 
-  /* تنسيق العنوان */
   .section-header {
     text-align: center;
     margin-bottom: 4rem;
@@ -42,11 +41,11 @@
     .section-title {
       font-size: 3rem;
       font-weight: 800;
-      /* تدرج بنفسجي للعنوان */
       background: linear-gradient(to right, #4b3b6b, #8a70b5);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      -webkit-text-fill-color: transparent;
       margin-bottom: 1rem;
     }
 
@@ -59,7 +58,6 @@
     }
   }
 
-  /* شبكة المشاريع */
   .projects-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -74,7 +72,6 @@
     }
   }
 
-  /* كارت المشروع */
   .project-card {
     background: #ffffff;
     border-radius: 20px;
@@ -82,11 +79,9 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    /* ظل بنفسجي خفيف جداً */
     box-shadow: 0 10px 30px rgba(75, 59, 107, 0.08);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-    /* الشريط العلوي الملون */
     .card-top-bar {
       height: 6px;
       width: 100%;
@@ -102,27 +97,27 @@
       box-shadow: 0 20px 40px rgba(75, 59, 107, 0.15);
     }
 
-    /* منطقة الصورة */
     .project-image {
       position: relative;
       height: 200px;
       overflow: hidden;
+      background: #f0ebf7;
 
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         transition: transform 0.5s ease;
+        display: block;
       }
 
-      /* Overlay يظهر عند الهوفر */
       .image-overlay {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(75, 59, 107, 0.7); /* بنفسجي شفاف */
+        background: rgba(75, 59, 107, 0.7);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -143,7 +138,7 @@
           text-decoration: none;
           transform: translateY(20px);
           transition: all 0.3s ease;
-          box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 
           &:hover {
             background: #8a70b5;
@@ -151,9 +146,10 @@
           }
         }
       }
+    }
 
-      /* تأثيرات الهوفر */
-      .project-card:hover & {
+    &:hover {
+      .project-image {
         img {
           transform: scale(1.1);
         }
@@ -167,7 +163,6 @@
       }
     }
 
-    /* معلومات المشروع */
     .project-info {
       padding: 1.5rem;
       flex-grow: 1;
@@ -190,7 +185,6 @@
         flex-grow: 1;
       }
 
-      /* التكنولوجيز (Tags) */
       .project-tech {
         margin-bottom: 1rem;
         display: flex;
@@ -198,7 +192,7 @@
         gap: 0.5rem;
 
         .tech-tag {
-          background: #f3f0f7; /* بنفسجي فاتح جداً */
+          background: #f3f0f7;
           color: #4b3b6b;
           padding: 0.3rem 0.8rem;
           border-radius: 20px;
@@ -215,11 +209,11 @@
         }
       }
 
-      /* اللينكات */
       .project-links {
         display: flex;
         gap: 1rem;
         margin-top: auto;
+        flex-wrap: wrap;
 
         a {
           color: #4b3b6b;
@@ -248,7 +242,6 @@
   }
 }
 
-/* تعديلات الموبايل */
 @media (max-width: 768px) {
   .projects-section {
     padding: 3rem 1rem;
@@ -267,10 +260,6 @@
   }
 }
 
-
-
-// ضيفي الكود ده في آخر الملف
-
 .view-all-container {
   display: flex;
   justify-content: center;
@@ -286,13 +275,12 @@
     font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
-    border-radius: 50px; /* شكل كبسولة */
+    border-radius: 50px;
     box-shadow: 0 10px 20px rgba(75, 59, 107, 0.25);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
 
-    /* لمسة كرييتف: لمعة بتتحرك */
     &::before {
       content: '';
       position: absolute;
@@ -300,7 +288,7 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
       transition: left 0.5s ease;
     }
 
@@ -309,11 +297,11 @@
       box-shadow: 0 15px 30px rgba(75, 59, 107, 0.4);
 
       &::before {
-        left: 100%; /* اللمعة تعدي */
+        left: 100%;
       }
 
       i {
-        transform: translateX(5px); /* السهم يتحرك */
+        transform: translateX(5px);
       }
     }
 

@@ -1,7 +1,8 @@
-:root {
+:host {
   --primary-color: #4b3b6b;
   --text-color: #ffffff;
   --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: block;
 }
 
 .navbar {
@@ -15,6 +16,7 @@
   z-index: 1000;
   box-shadow: var(--shadow);
   transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .nav-container {
@@ -28,8 +30,11 @@
 .nav-links {
   display: flex;
   gap: 2.5rem;
-  flex-wrap: wrap; /* نسمح بالالتفاف */
+  flex-wrap: wrap;
   justify-content: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 .nav-links a {
@@ -63,6 +68,7 @@
 
 .navbar.scrolled {
   background-color: rgba(75, 59, 107, 0.95);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   padding: 0.8rem 2rem;
 }
@@ -70,7 +76,7 @@
 /* تصميم للجوال */
 @media (max-width: 768px) {
   .navbar {
-    padding: 0.8rem 1rem; /* تقليل الـ padding */
+    padding: 0.8rem 1rem;
   }
 
   .nav-links {
@@ -82,7 +88,6 @@
   }
 }
 
-/* موبايلات صغيرة جداً */
 @media (max-width: 480px) {
   .nav-links {
     gap: 0.5rem;
