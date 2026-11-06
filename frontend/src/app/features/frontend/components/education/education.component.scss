@@ -1,82 +1,207 @@
 #education {
-  padding: 4rem 1rem;
-  background-color: var(--light-color);
+  padding: 5rem 1rem;
+  background-color: #fdfcff; /* نفس خلفية قسم المشاريع */
+  position: relative;
+  overflow: hidden;
 
+  /* لمسة كرييتف: دايرة ضوئية في الخلفية */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: -5%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(138, 112, 181, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .container {
+    max-width: 1000px; /* عرض أقل عشان الخط الزمني يبان */
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* تنسيق العنوان */
   .section-title {
     text-align: center;
-    margin-bottom: 2.5rem;
+    margin-bottom: 4rem;
 
     h2 {
-      font-size: 2.2rem;
-      color: var(--primary-color);
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(to right, #4b3b6b, #8a70b5);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .underline {
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(to right, #4b3b6b, #8a70b5);
+      margin: 0 auto;
+      border-radius: 2px;
     }
   }
 
+  /* الحاوية الرئيسية للخط الزمني */
   .timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
     position: relative;
-    margin-left: 1rem;
+    padding: 2rem 0;
 
-    &::before {
-      content: "";
+    /* الخط الرأسي */
+    .timeline-line {
       position: absolute;
-      left: 0;
+      left: 50%;
       top: 0;
       bottom: 0;
-      width: 4px;
-      background-color: var(--accent-color);
+      width: 3px;
+      background: linear-gradient(to bottom, #e0dced, #8a70b5, #e0dced); /* تدرج بنفسجي */
+      transform: translateX(-50%);
+      border-radius: 2px;
     }
 
+    /* كل عنصر */
     .timeline-item {
-      display: flex;
-      flex-direction: column;
-      margin-left: 2rem;
-      padding-left: 1rem;
-      border-left: 4px solid var(--primary-color);
       position: relative;
+      width: 50%;
+      padding: 1rem 3rem;
+      box-sizing: border-box;
 
-      &::before {
-        content: "";
+      /* العناصر على الشمال */
+      &.left {
+        left: 0;
+        text-align: right;
+
+        .timeline-dot {
+          right: -9px; /* توسيط النقطة على الخط */
+        }
+      }
+
+      /* العناصر على اليمين */
+      &.right {
+        left: 50%;
+        text-align: left;
+
+        .timeline-dot {
+          left: -9px;
+        }
+      }
+
+      /* النقطة المتوهجة */
+      .timeline-dot {
         position: absolute;
-        left: -12px;
-        top: 0;
-        width: 20px;
-        height: 20px;
-        background-color: var(--primary-color);
+        top: 2rem;
+        width: 18px;
+        height: 18px;
+        background: #ffffff;
+        border: 4px solid #8a70b5;
         border-radius: 50%;
-        border: 3px solid white;
+        z-index: 10;
+        box-shadow: 0 0 0 4px rgba(138, 112, 181, 0.2); /* هالة بنفسجية */
+        transition: all 0.3s ease;
       }
 
-      .timeline-date {
-        font-weight: bold;
-        color: var(--primary-color);
-        margin-bottom: 0.5rem;
-      }
-
+      /* الكارت */
       .timeline-content {
-        background-color: white;
-        padding: 1rem 1.5rem;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        background: #ffffff;
+        padding: 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(75, 59, 107, 0.08); /* ظل بنفسجي خفيف */
+        position: relative;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: 1px solid #f0ebf7;
+
+        /* تاريخ */
+        .timeline-date {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          font-size: 0.85rem;
+          font-weight: 600;
+          color: #8a70b5;
+          background: #f3f0f7;
+          padding: 0.3rem 0.8rem;
+          border-radius: 20px;
+          margin-bottom: 0.8rem;
+        }
 
         h3 {
-          margin: 0;
-          font-size: 1.2rem;
-          color: var(--primary-color);
+          margin: 0 0 0.3rem;
+          font-size: 1.25rem;
+          color: #4b3b6b;
+          font-weight: 700;
         }
 
         h4 {
-          font-size: 1rem;
-          margin: 0.3rem 0 0.8rem;
-          color: var(--accent-color);
+          font-size: 0.95rem;
+          margin: 0 0 0.8rem;
+          color: #8a70b5;
+          font-weight: 500;
         }
 
         p {
-          color: var(--text-color);
+          color: #666;
           line-height: 1.6;
-          font-size: 0.95rem;
+          font-size: 0.9rem;
+          margin: 0;
+        }
+      }
+
+      /* تأثير الهوفر */
+      &:hover {
+        .timeline-content {
+          transform: translateY(-5px) scale(1.02);
+          box-shadow: 0 15px 35px rgba(75, 59, 107, 0.15);
+          border-color: #d1c4e9;
+        }
+
+        .timeline-dot {
+          background: #8a70b5;
+          box-shadow: 0 0 0 6px rgba(138, 112, 181, 0.3); /* تكبير الهالة */
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+}
+
+/* ========================================= */
+/* تعديلات الموبايل (الخط الزمني على الشمال) */
+/* ========================================= */
+@media (max-width: 768px) {
+  #education {
+    padding: 3rem 1rem;
+
+    .section-title h2 {
+      font-size: 2rem;
+    }
+
+    .timeline {
+      .timeline-line {
+        left: 20px; /* الخط على الشمال */
+        transform: none;
+      }
+
+      .timeline-item {
+        width: 100%;
+        padding: 1rem 0 1rem 3rem;
+        text-align: left !important; /* الكل على الشمال */
+
+        &.left, &.right {
+          left: 0;
+
+          .timeline-dot {
+            left: 11px; /* توسيط النقطة على الخط */
+            right: auto;
+          }
+        }
+
+        .timeline-content {
+          padding: 1.2rem;
         }
       }
     }

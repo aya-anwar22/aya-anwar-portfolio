@@ -1,7 +1,9 @@
-
 :root {
-  --text-color: #ffffff; /* أو أي كود لون أبيض تفضله */
+  --primary-color: #4b3b6b; /* اللون البنفسجي الغامق */
+  --text-color: #ffffff;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+
 .navbar {
   background-color: var(--primary-color);
   color: var(--text-color);
@@ -19,113 +21,61 @@
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* توسيط اللينكات في المنتصف */
   align-items: center;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-color);
-  text-decoration: none;
-  transition: transform 0.3s ease;
-}
-
-.logo:hover {
-  transform: scale(1.05);
-}
-
-.logo-img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid var(--text-color);
 }
 
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem; /* مسافة أوسع بين اللينكات */
 }
 
 .nav-links a {
-  color: white; /* تغيير من var(--text-color) إلى white */
+  color: var(--text-color);
   font-weight: 500;
   text-decoration: none;
   position: relative;
   padding: 0.5rem 0;
-  transition: all 0.3s ease;
+  font-size: 1rem;
+  transition: color 0.3s ease;
 }
 
-.nav-links a::before {
-  background-color: white; /* تغيير من var(--text-color) إلى white */
+/* تأثير الخط السفلي عند التمرير */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #d1c4e9; /* لون بنفسجي فاتح */
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
 }
 
 .nav-links a:hover {
-  color: white; /* هذا بالفعل مضبوط على white */
+  color: #d1c4e9;
 }
 
 /* تأثير تغيير الخلفية عند التمرير */
 .navbar.scrolled {
-  background-color: rgba(37, 99, 235, 0.9);
+  background-color: rgba(75, 59, 107, 0.95);
   backdrop-filter: blur(10px);
-  padding: 0.5rem 2rem;
-}
-
-/* هامبرجر مينو للجوال */
-.hamburger {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-}
-
-.hamburger span {
-  display: block;
-  width: 25px;
-  height: 2px;
-  background-color: var(--text-color);
-  margin: 5px 0;
-  transition: all 0.3s ease;
+  padding: 0.8rem 2rem;
 }
 
 /* تصميم للجوال */
 @media (max-width: 768px) {
   .nav-links {
-    position: fixed;
-    top: 70px;
-    left: -100%;
-    width: 100%;
-    height: calc(100vh - 70px);
-    background-color: var(--primary-color);
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem 0;
-    gap: 2rem;
-    transition: left 0.3s ease;
+    gap: 1rem;
+    flex-wrap: wrap; /* السماح بالالتفاف إذا ضاقت المساحة */
+    justify-content: center;
   }
-  
-  .nav-links.active {
-    left: 0;
-  }
-  
-  .hamburger {
-    display: block;
-  }
-  
-  .hamburger.active span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-  }
-  
-  .hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .hamburger.active span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+
+  .nav-links a {
+    font-size: 0.9rem;
   }
 }

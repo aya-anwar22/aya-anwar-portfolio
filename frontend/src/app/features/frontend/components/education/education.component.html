@@ -1,18 +1,32 @@
 <section id="education" *ngIf="educations.length">
   <div class="container">
+
     <div class="section-title">
-      <h2>Education & Training</h2>
+      <h2>Education</h2>
+      <div class="underline"></div>
     </div>
+
     <div class="timeline">
-      <div class="timeline-item" *ngFor="let edu of educations">
-        <div class="timeline-date">
-          {{ formatDate(edu.startDate) }} - {{ formatDate(edu.endDate) }}
-        </div>
+      <!-- الخط الرأسي في المنتصف -->
+      <div class="timeline-line"></div>
+
+      <!-- عناصر التعليم -->
+      <div class="timeline-item" *ngFor="let edu of educations; let i = index" [class.left]="i % 2 === 0" [class.right]="i % 2 !== 0">
+
+        <!-- النقطة المتوهجة -->
+        <div class="timeline-dot"></div>
+
+        <!-- الكارت -->
         <div class="timeline-content">
+          <div class="timeline-date">
+            <i class="far fa-calendar-alt"></i>
+            {{ formatDate(edu.startDate) }} - {{ formatDate(edu.endDate) }}
+          </div>
           <h3>{{ edu.educationName }}</h3>
           <h4>{{ edu.program }}</h4>
           <p>{{ edu.description }}</p>
         </div>
+
       </div>
     </div>
   </div>
