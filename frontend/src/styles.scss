@@ -5,3 +5,14 @@
   --text-color: #333;
   --white: #ffffff;
 }
+
+
+/* 1. النزول الناعم */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 2. مساحة فوق كل قسم عشان الـ Navbar الثابت ميغطيش على العناوين */
+section[id], div[id="home"] {
+  scroll-margin-top: 80px; /* غيري الرقم ده لو الـ Navbar أطول أو أقصر */
+}

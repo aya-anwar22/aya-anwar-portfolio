@@ -99,6 +99,35 @@
   }
 }
 
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 2rem 1rem;
+
+    .about-content {
+      padding: 1rem;
+      flex-direction: column; // النص فوق الصورة
+      gap: 1.5rem;
+
+      .about-text {
+        text-align: center; // توسيط النص
+
+        h3 {
+          font-size: 1.2rem;
+        }
+        p {
+          font-size: 0.9rem;
+          text-align: left;
+        }
+      }
+
+      .about-image .image-wrapper {
+        max-width: 250px; // تصغير الصورة
+      }
+    }
+  }
+}
+
 /* للموبايل */
 @media (max-width: 768px) {
   .about-section {

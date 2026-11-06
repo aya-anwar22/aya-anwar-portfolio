@@ -6,10 +6,10 @@ import { ProjectsComponent } from '../projects/projects.component';
 import { EducationComponent } from '../education/education.component';
 import { ContactComponent } from '../contact/contact.component';
 import { ServicesComponent } from '../services/services.component';
-
+import { CertificationsComponent } from '../../components/ certifications/certifications.component';
 @Component({
   selector: 'app-home',
-  imports: [AboutComponent, SkillsComponent, ProjectsComponent, EducationComponent, ContactComponent, ServicesComponent],
+  imports: [AboutComponent, SkillsComponent, ProjectsComponent, EducationComponent, ContactComponent, ServicesComponent, CertificationsComponent],
 
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
